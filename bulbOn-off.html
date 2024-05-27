@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bulb on off </title>
+        <script>
+            function OnOffButton() {
+               
+                let onbulb = document.getElementById('onBulb');
+                let offBulb = document.getElementById('offBulb');
+
+                if(offBulb.style.display === "none")
+                {
+                    onbulb.style.display = "none";
+                    offBulb.style.display = "block";                    
+                }
+                else{
+                    onbulb.style.display = "block";
+                    offBulb.style.display = "none";                   
+                }
+                
+            }
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <img id="onBulb" src="https://media.geeksforgeeks.org/wp-content/uploads/OFFbulb.jpg" alt="no image">
+            <img id="offBulb" src="https://media.geeksforgeeks.org/wp-content/uploads/ONbulb.jpg" style = "display: none;" alt="no image">
+            <br>
+            <button onclick="OnOffButton()" style="height: 50px; width: 100px; background-color: cadetblue; font-size: 20px;">Toggle</button>
+        </div>
+    </body>
+</html>

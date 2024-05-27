@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script>
+
+  let marks1, marks2, marks3, marks4, marks5;
+  let total, min, max, result, grade;
+  let ans1, ans2, ans3;
+
+  
+  if (confirm("Are you Ready?")) {
+    document.write("ok..Good" + "<br>");
+  }
+  else {
+    document.write("Thanks Bye Bye..." + "<br>");
+  }
+ 
+  marks1 = parseInt(prompt("Enter the marks for Science : "));
+  marks2 = parseInt(prompt("Enter the marks for Maths : "));
+  marks3 = parseInt(prompt("Enter the marks for English : "));
+  marks4 = parseInt(prompt("Enter the marks for Computer : "));
+  marks5 = parseInt(prompt("Enter the marks for social - Science  : "));
+
+
+  //total of 5 subject 
+  total = marks1 + marks2 + marks3 + marks4 + marks5;
+  document.write("total marks obtained is ", total);
+  document.write("<br>");
+
+  // max of 5 subject
+  ans1 = (marks1 > marks2) ? marks1 : marks2;
+  ans2 = (marks3 > marks4) ? marks3 : marks4;
+  ans3 = (ans1 > ans2) ? ans1 : ans2;
+  max = (ans3 > marks5) ? ans3 : marks5;
+
+  document.write("Max marks is", max);
+  document.write("<br>");
+
+  // min of 5 subject
+  ans1 = (marks1 > marks2) ? marks2 : marks1;
+  ans2 = (marks3 > marks4) ? marks4 : marks3;
+  ans3 = (ans1 > ans2) ? ans2 : ans1;
+  min = (ans3 > marks5) ? marks5 : ans3;
+
+  document.write("Min marks is", min);
+  document.write("<br>");
+
+  //print result PASS or FAIL
+
+  (marks1 > 33 && marks2 > 33 && marks3 > 33 && marks4 > 33 && marks5 > 33) ? document.write("<br>your result is PASS\n") : document.write("<br>your result is FAIL\n");
+
+  //Print Grade
+  document.write("<br>");
+  if (total > 450)
+    document.write("Grade A");
+  else if (total > 300)
+    document.write("Grade B");
+  else if (total > 200)
+    document.write("Grade C");
+  else if (total > 100)
+    document.write("Grade D");
+  else
+    document.write("Grade E");
+
+</script>
+
+<body>
+
+</body>
+
+</html>
