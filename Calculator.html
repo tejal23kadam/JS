@@ -8,23 +8,97 @@
     <link rel="stylesheet" href="calculator.css">
 </head>
 <script>
+    let totalString;
+    let queueData = [];
+    let input = 0;
+
+    // to disable keyboard input 
+    document.onkeydown = function (e) {
+        return false;
+    }
+
     function getDigit(x) {
-        let totalString = document.getElementById('inputDisplay').value;
-        totalString +=x;
-        if( x == '=')
-        {
-            
-            document.getElementById('inputDisplay').value += x;
+        input = String(input) + x;
+        totalString = document.getElementById("inputDisplay").value += x;
+    }
+    function getOperator(x) {
+        if (input !== 0 ) {        
+                input = parseFloat(input);
+                if(input !== isNaN(input))
+                {
+                    addToQueue(input);
+                }               
+                addToQueue(x);          
+            console.log('queue', queueData);
+            totalString = document.getElementById("inputDisplay").value += x;
+            input = 0;
         }
     }
+    function addToQueue(input) {
+        alert(input)
+        if(input != 'NaN')
+            queueData.push(input);
+    }
     function clearDigit() {
+        queueData = [];
+        input = 0;
         document.getElementById("inputDisplay").value = 0;
     }
     function deleteDigit() {
-        var strng = document.getElementById("inputDisplay").value;
-        document.getElementById("inputDisplay").value = strng.substring(0, strng.length - 1)
+
+        totalString = totalString.substring(0, totalString.length - 1);
+        console.log('total string', totalString);
+        if(input != 'Nan')
+            input = String(input).substring(0, String(input).length - 1);
+
+        document.getElementById("inputDisplay").value = totalString;
     }
-    
+    function calculate(value) {
+
+        if (input !== 0) {
+            input = parseFloat(input);   
+            addToQueue(input);
+            
+        }
+        var answer = value[0];
+        var dividedByZero = 0;
+        for (var i = 2; i < value.length; i = i + 2) {
+
+            switch (queueData[i - 1]) {
+                case '+':
+                    answer += value[i];
+                    break;
+                case '-':
+                    answer -= value[i];
+                    break;
+                case '/':
+                    if (value[i] === 0)
+                        dividedByZero = 1;
+                    else
+                        answer = answer / value[i];
+                    break;
+
+                case '*':
+                    answer = answer * value[i];
+                    break;
+                case '%':
+                    answer = answer % value[i];
+                    break;
+            }
+        }
+        answer = answer.toFixed(10);
+        answer = parseFloat(answer);
+
+        if (dividedByZero === 1) {
+            clearDigit();
+            document.getElementById("inputDisplay").value = "ERROR";
+        }
+        else {
+            document.getElementById("inputDisplay").value = answer;
+            input = answer;
+            queueData = [];
+        }
+    }
 </script>
 
 <body>
@@ -32,37 +106,40 @@
         <div class="main-bg">
             <div class="button-row">
                 <div>
-                    <input type="text" id="inputDisplay">
+                    <input type="text" id="inputDisplay" pattern="[0-9 + - / *]">
                 </div>
                 <div>
                     <button class="dark-gray" onclick="clearDigit()">C</button>
                     <button class="dark-gray" onclick="deleteDigit()">DEL</button>
-                    <button class="dark-gray">%</button>
-                    <button class="orange-peel font-white">/</button>
+                    <button class="dark-gray" onclick="getOperator('%')">%</button>
+                    <button class="orange-peel font-white" onclick="getOperator('/')">/</button>
                 </div>
                 <div>
                     <button class="gray20-color font-white" onclick="getDigit(7)">7</button>
                     <button class="gray20-color font-white" onclick="getDigit(8)">8</button>
                     <button class="gray20-color font-white" onclick="getDigit(9)">9</button>
-                    <button class="orange-peel font-white" onclick="getDigit('*')">*</button>
+                    <button class="orange-peel font-white" onclick="getOperator('*')">*</button>
                 </div>
                 <div>
                     <button class="gray20-color font-white" onclick="getDigit(4)">4</button>
                     <button class="gray20-color font-white" onclick="getDigit(5)">5</button>
                     <button class="gray20-color font-white" onclick="getDigit(6)">6</button>
-                    <button class="orange-peel font-white" onclick="getDigit('-')">-</button>
+                    <button class="orange-peel font-white" onclick="getOperator('-')">-</button>
                 </div>
                 <div>
                     <button class="gray20-color font-white" onclick="getDigit(1)">1</button>
                     <button class="gray20-color font-white" onclick="getDigit(2)">2</button>
                     <button class="gray20-color font-white" onclick="getDigit(3)">3</button>
-                    <button class="orange-peel font-white" onclick="getDigit('+')">+</button>
+                    <button class="orange-peel font-white" onclick="getOperator('+')">+</button>
                 </div>
                 <div>
-                    <button class="gray20-color font-white" onclick="getDigit(0)">0</button>
+                    <button class="gray20-color font-white"
+                        style="width: 175px; border-radius: 50px; text-align: left; padding-left: 20px;"
+                        onclick="getDigit(0)">0</button>
                     <button class="gray20-color font-white" onclick="getDigit('.')">.</button>
-                    <button class="orange-peel font-white" onclick="getDigit('=')">=</button>
+                    <button class="orange-peel font-white" onclick="calculate(queueData)">=</button>
                 </div>
+
             </div>
         </div>
     </div>
