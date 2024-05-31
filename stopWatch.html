@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+</head>
+<style>
+    .main-div {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    button {
+        height: 30px;
+        width: 100px;
+    }
+
+    p {
+        font-size: 40px;
+    }
+</style>
+
+<body>
+    <div>
+        <div class="main-div">
+            <div>
+                <h1>Hr</h1>
+            </div>
+            <div>
+                <h1>Min</h1>
+            </div>
+            <div>
+                <h1>Sec</h1>
+            </div>
+            <div>
+                <h1>Mili</h1>
+            </div>
+        </div>
+        <div class="main-div">
+            <div>
+                <p id="hour">00</p>
+            </div>
+            <div>
+                <p id="min">00</p>
+            </div>
+            <div>
+                <p id="sec">00</p>
+            </div>
+            <div>
+                <p id="mili">00</p>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <div>
+                <button id="strtBtn" onclick="startWatchBtn();">Start</button>
+
+                <button id="stpBtn" onclick="stopWatchBtn();">Stop</button>
+
+                <button id="resetBtn" onclick="resetwatchBtn();">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let miliCounter = 0;
+        let secCounter = 0
+        let minCounter = 0;
+        let hourCounter = 0;
+
+        function startWatchBtn() {
+            timer = true;
+            stopWatch();
+
+        }
+        function stopWatchBtn() {
+            timer = false;  
+            stopWatch();          
+        }
+
+        function resetwatchBtn() {
+            timer = false;
+            miliCounter = 0;
+            secCounter = 0
+            minCounter = 0;
+            hourCounter = 0;
+
+            document.getElementById('hour').innerHTML = "00";
+            document.getElementById('min').innerHTML = "00";
+            document.getElementById('sec').innerHTML = "00";
+            document.getElementById('mili').innerHTML = "00";
+        }
+        function stopWatch() {
+            if (timer) {
+                
+                miliCounter++;
+
+                if (miliCounter == 100) {
+                    secCounter++;
+                    miliCounter = 0;
+                }
+
+                if (secCounter == 60) {
+                    minCounter++;
+                    secCounter = 0;
+                }
+
+                if (minCounter == 60) {
+                    hourCounter++;
+                    minCounter = 0;
+                    secCounter = 0;
+                }
+
+                let hrString = hourCounter;
+                let minString = minCounter;
+                let secString = secCounter;
+                let countString = miliCounter;
+
+                if (hourCounter < 10) {
+                    hrString = "0" + hrString;
+                }
+
+                if (minCounter < 10) {
+                    minString = "0" + minString;
+                }
+
+                if (secCounter < 10) {
+                    secString = "0" + secString;
+                }
+
+                if (miliCounter < 10) {
+                    countString = "0" + countString;
+                }
+
+                document.getElementById('hour').innerHTML = hrString;
+                document.getElementById('min').innerHTML = minString;
+                document.getElementById('sec').innerHTML = secString;
+                document.getElementById('mili').innerHTML = countString;
+                setTimeout(stopWatch, 10);
+            }
+           
+        }
+    </script>
+
+</body>
+
+</html>

@@ -24,9 +24,9 @@
     function getOperator(x) {
         if (input !== 0) {
             input = parseFloat(input);
-            if (input !== isNaN(input)) {
+            
                 addToQueue(input);
-            }
+          
             addToQueue(x);
             console.log('queue', queueData);
             totalString = document.getElementById("inputDisplay").value += x;
@@ -52,7 +52,7 @@
 
         document.getElementById("inputDisplay").value = totalString;
     }
-    //function to remove NAN values from the array
+    //function to remove NAN values from the array.but not called.
     function filter_array(test_array) {      
         let index = -1,
             arr_length = test_array ? test_array.length : 0,
@@ -68,7 +68,7 @@
     };
     function calculate(value) {
        
-        console.log("new array is"+newArray);
+        
         if (input !== 0) {
             input = parseFloat(input);
             addToQueue(input);
