@@ -1,155 +1,179 @@
-function checkPattern() {
-    // Setting DOM to all boxes or input field 
-    let b1, b2, b3, b4, b5, b6, b7, b8, b9;
-    b1 = document.getElementById("btn1").value;
-    b2 = document.getElementById("btn2").value;
-    b3 = document.getElementById("btn3").value;
-    b4 = document.getElementById("btn4").value;
-    b5 = document.getElementById("btn5").value;
-    b6 = document.getElementById("btn6").value;
-    b7 = document.getElementById("btn7").value;
-    b8 = document.getElementById("btn8").value;
-    b9 = document.getElementById("btn9").value;
-
-   // console.log("b1 b2 b3 b4 b5 b6 b7 b8 b9 " + b1 +b2+b3+b4+b5+b6+b7+b8+b9);
-
-  
+let arr = [];
+let x;
+while (arr.length < 9) {
+    var r = Math.floor(Math.random() * 9)
+    if (r == 0) { x = arr.indexOf(r); console.log("dfddsf" + x); }
+    if (arr.indexOf(r) === -1) arr.push(r);
 }
-let b1, b2, b3, b4, b5, b6, b7, b8, b9;
-    b1 = document.getElementById("btn1").value;
-    b2 = document.getElementById("btn2").value;
-    b3 = document.getElementById("btn3").value;
-    b4 = document.getElementById("btn4").value;
-    b5 = document.getElementById("btn5").value;
-    b6 = document.getElementById("btn6").value;
-    b7 = document.getElementById("btn7").value;
-    b8 = document.getElementById("btn8").value;
-    b9 = document.getElementById("btn9").value;
-function fun1() {
-    
-    if(b4 == "")
-        {
-            b4.value = b1.value;
-            b1.value = "";             
-        }
-    if(b2=="")
-        {
-            document.getElementById("btn2").innerHTML = "78";
-            document.getElementById("btn1").value = "hdhdgdf";           
-        }
-      
-        console.log("b1  " + b1);
-        console.log("b2  " + b2);
-        console.log("b3  " + b3);
-        console.log("b4  " + b4);
-        console.log("b5  " + b5);
-        console.log("b6  " + b6);
-        console.log("b7  " + b7);
-        console.log("b8  " + b8);
-        console.log("b9  " + b9);
-}   
-
-function fun2() {
-    if (flag == 1) {
-        document.getElementById("btn2").value = "X";
-        document.getElementById("btn2").disabled = true;
-        flag = 0;
+for (let i = 1; i < 10; i++) {
+    id = 'n' + i;
+    if (arr[i - 1] == 0) {
+        document.getElementById(id).innerHTML = "";
     }
     else {
-        document.getElementById("btn2").value = "0";
-        document.getElementById("btn2").disabled = true;
-        flag = 1;
+        document.getElementById(id).innerHTML = arr[i - 1];
+    }
+}
+
+function fun1() {
+    let v1 = document.getElementById("n1").innerHTML;
+    let v2 = document.getElementById("n2").innerHTML;
+    let v4 = document.getElementById("n4").innerHTML;
+    if (v4 == '') {
+        document.getElementById("n4").innerHTML = v1;
+        document.getElementById("n1").innerHTML = v4;
+    }
+    if (v2 == '') {
+        document.getElementById("n2").innerHTML = v1;
+        document.getElementById("n1").innerHTML = v2;
+    }
+}
+
+function fun2() {
+    let v1 = document.getElementById("n1").innerHTML;
+    let v2 = document.getElementById("n2").innerHTML;
+    let v5 = document.getElementById("n5").innerHTML;
+    let v3 = document.getElementById("n3").innerHTML;
+    if (v1 == '') {
+        document.getElementById("n1").innerHTML = v2;
+        document.getElementById("n2").innerHTML = v1;
+    }
+    if (v3 == '') {
+        document.getElementById("n3").innerHTML = v2;
+        document.getElementById("n2").innerHTML = v3;
+    }
+    if (v5 == '') {
+        document.getElementById("n5").innerHTML = v2;
+        document.getElementById("n2").innerHTML = v5;
     }
 }
 
 function fun3() {
-    if (flag == 1) {
-        document.getElementById("btn3").value = "X";
-        document.getElementById("btn3").disabled = true;
-        flag = 0;
+    let v2 = document.getElementById("n2").innerHTML;
+    let v3 = document.getElementById("n3").innerHTML;
+    let v6 = document.getElementById("n6").innerHTML;
+    if (v2 == '') {
+        document.getElementById("n3").innerHTML = v2;
+        document.getElementById("n2").innerHTML = v3;
     }
-    else {
-        document.getElementById("btn3").value = "0";
-        document.getElementById("btn3").disabled = true;
-        flag = 1;
+    if (v6 == '') {
+        document.getElementById("n6").innerHTML = v2;
+        document.getElementById("n2").innerHTML = v6;
     }
 }
-
 function fun4() {
-    if (flag == 1) {
-        document.getElementById("btn4").value = "X";
-        document.getElementById("btn4").disabled = true;
-        flag = 0;
+    let v1 = document.getElementById("n1").innerHTML;
+    let v4 = document.getElementById("n4").innerHTML;
+    let v5 = document.getElementById("n5").innerHTML;
+    let v7 = document.getElementById("n7").innerHTML;
+    if (v1 == '') {
+        document.getElementById("n1").innerHTML = v4;
+        document.getElementById("n4").innerHTML = v1;
     }
-    else {
-        document.getElementById("btn4").value = "0";
-        document.getElementById("btn4").disabled = true;
-        flag = 1;
+
+    if (v5 == '') {
+        document.getElementById("n5").innerHTML = v4;
+        document.getElementById("n4").innerHTML = v5;
+    }
+    if (v7 == '') {
+        document.getElementById("n7").innerHTML = v4;
+        document.getElementById("n4").innerHTML = v7;
     }
 }
 
 function fun5() {
-    if (flag == 1) {
-        document.getElementById("btn5").value = "X";
-        document.getElementById("btn5").disabled = true;
-        flag = 0;
+    let v2 = document.getElementById("n2").innerHTML;
+    let v4 = document.getElementById("n4").innerHTML;
+    let v5 = document.getElementById("n5").innerHTML;
+    let v6 = document.getElementById("n6").innerHTML;
+    let v8 = document.getElementById("n8").innerHTML;
+    if (v2 == '') {
+        document.getElementById("n2").innerHTML = v5;
+        document.getElementById("n5").innerHTML = v2;
     }
-    else {
-        document.getElementById("btn5").value = "0";
-        document.getElementById("btn5").disabled = true;
-        flag = 1;
+
+    if (v4 == '') {
+        document.getElementById("n4").innerHTML = v5;
+        document.getElementById("n5").innerHTML = v4;
+    }
+    if (v6 == '') {
+        document.getElementById("n6").innerHTML = v5;
+        document.getElementById("n5").innerHTML = v6;
+    }
+    if (v8 == '') {
+        document.getElementById("n8").innerHTML = v5;
+        document.getElementById("n5").innerHTML = v8;
     }
 }
 
 function fun6() {
-    if (flag == 1) {
-        document.getElementById("btn6").value = "X";
-        document.getElementById("btn6").disabled = true;
-        flag = 0;
+
+    let v3 = document.getElementById("n3").innerHTML;
+    let v5 = document.getElementById("n5").innerHTML;
+    let v6 = document.getElementById("n6").innerHTML;
+    let v9 = document.getElementById("n9").innerHTML;
+    if (v3 == '') {
+        document.getElementById("n3").innerHTML = v6;
+        document.getElementById("n6").innerHTML = v3;
     }
-    else {
-        document.getElementById("btn6").value = "0";
-        document.getElementById("btn6").disabled = true;
-        flag = 1;
+    if (v5 == '') {
+        document.getElementById("n5").innerHTML = v6;
+        document.getElementById("n6").innerHTML = v5;
+    }
+    if (v9 == '') {
+        document.getElementById("n9").innerHTML = v6;
+        document.getElementById("n6").innerHTML = v9;
     }
 }
 
 function fun7() {
-    if (flag == 1) {
-        document.getElementById("btn7").value = "X";
-        document.getElementById("btn7").disabled = true;
-        flag = 0;
+    let v4 = document.getElementById("n4").innerHTML;
+    let v7 = document.getElementById("n7").innerHTML;
+    let v8 = document.getElementById("n8").innerHTML;
+
+    if (v4 == '') {
+        document.getElementById("n4").innerHTML = v7;
+        document.getElementById("n7").innerHTML = v4;
     }
-    else {
-        document.getElementById("btn7").value = "0";
-        document.getElementById("btn7").disabled = true;
-        flag = 1;
+    if (v8 == '') {
+        document.getElementById("n8").innerHTML = v7;
+        document.getElementById("n7").innerHTML = v8;
     }
 }
 
 function fun8() {
-    if (flag == 1) {
-        document.getElementById("btn8").value = "X";
-        document.getElementById("btn8").disabled = true;
-        flag = 0;
+    let v5 = document.getElementById("n5").innerHTML;
+    let v7 = document.getElementById("n7").innerHTML;
+    let v8 = document.getElementById("n8").innerHTML;
+    let v9 = document.getElementById("n9").innerHTML;
+
+    if (v5 == '') {
+        document.getElementById("n5").innerHTML = v8;
+        document.getElementById("n8").innerHTML = v5;
     }
-    else {
-        document.getElementById("btn8").value = "0";
-        document.getElementById("btn8").disabled = true;
-        flag = 1;
+    if (v7 == '') {
+        document.getElementById("n7").innerHTML = v8;
+        document.getElementById("n8").innerHTML = v7;
+    }
+    if (v9 == '') {
+        document.getElementById("n9").innerHTML = v8;
+        document.getElementById("n8").innerHTML = v9;
     }
 }
 
 function fun9() {
-    if (flag == 1) {
-        document.getElementById("btn9").value = "X";
-        document.getElementById("btn9").disabled = true;
-        flag = 0;
+    let v6 = document.getElementById("n6").innerHTML;
+    let v8 = document.getElementById("n8").innerHTML;
+    let v9 = document.getElementById("n9").innerHTML;
+    if (v6 == '') {
+        document.getElementById("n6").innerHTML = v9;
+        document.getElementById("n9").innerHTML = v6;
     }
-    else {
-        document.getElementById("btn9").value = "0";
-        document.getElementById("btn9").disabled = true;
-        flag = 1;
+    if (v8 == '') {
+        document.getElementById("n8").innerHTML = v9;
+        document.getElementById("n9").innerHTML = v8;
     }
-
 }
+
+
+
