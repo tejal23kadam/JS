@@ -19,6 +19,7 @@ function checkWinner() {
     if (box1 != "" && box2 != "" && box3 != "") {
       if (box1 == box2 && box2 == box3) {
         isWon = true;
+        document.getElementById("disText").innerHTML =box1 +" is win ";
         document.getElementById('txt' + condition[0]).style.color = "red";
         document.getElementById('txt' + condition[1]).style.color = "red";
         document.getElementById('txt' + condition[2]).style.color = "red";

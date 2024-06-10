@@ -11,23 +11,29 @@
         <div class="main-bg">
             <div class="input-row">
                 <div>
-                    <input id="txt1" class="cell" type="text" onclick=" fun1(); checkPattern();"  >
-                    <input id="txt2" class="cell" type="text" onclick=" fun2(); checkPattern();" >
-                    <input id="txt3" class="cell" type="text" onclick=" fun3(); checkPattern();">                   
+                    <input id="txt1" class="cell" type="text" onclick=" printXorO(this.id); checkWinner();"  >
+                    <input id="txt2" class="cell" type="text" onclick=" printXorO(this.id); checkWinner();" >
+                    <input id="txt3" class="cell" type="text" onclick=" printXorO(this.id); checkWinner();">                   
                 </div>
                 <div>
-                    <input id="txt4" class="cell" type="text" onclick=" fun4(); checkPattern();">
-                    <input id="txt5" class="cell" type="text" onclick=" fun5(); checkPattern();">
-                    <input id="txt6" class="cell" type="text" onclick=" fun6(); checkPattern();">                   
+                    <input id="txt4" class="cell" type="text" onclick=" printXorO(this.id); checkWinner();">
+                    <input id="txt5" class="cell" type="text" onclick=" printXorO(this.id); checkWinner();">
+                    <input id="txt6" class="cell" type="text" onclick=" printXorO(this.id); checkWinner();">                   
                 </div>
                 <div>
-                    <input id="txt7" class="cell"  type="text" onclick="fun7(); checkPattern(); ">
-                    <input id="txt8" class="cell" type="text" onclick=" fun8(); checkPattern(); ">
-                    <input id="txt9" class="cell" type="text" onclick=" fun9(); checkPattern(); ">
+                    <input id="txt7" class="cell"  type="text" onclick="printXorO(this.id); checkWinner(); ">
+                    <input id="txt8" class="cell" type="text" onclick=" printXorO(this.id); checkWinner(); ">
+                    <input id="txt9" class="cell" type="text" onclick=" printXorO(this.id); checkWinner(); ">
                 </div>
+                
+            </div>
+            <div>
+                <p id="disText"></p>
             </div>
         </div>
+        
     </div>
+    
     <script src="Tic-Tac-Toe-by-user-and-system-js.js"></script>
 </body>
 </html>
